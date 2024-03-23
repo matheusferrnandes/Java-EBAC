@@ -13,3 +13,18 @@ def buscar_usuarios():
     print("Buscando usuários...")
 
 buscar_usuarios()
+
+import inspect
+
+def tabela(nome_da_tabela):
+    def decorator(funcao):
+        def wrapper(*args, **kwargs):
+            # Aqui você pode fazer qualquer coisa com o nome_da_tabela
+            print("Acessando tabela:", nome_da_tabela)
+            return funcao(*args, **kwargs)
+        return wrapper
+    return decorator
+
+# Lendo a anotação e imprimindo no console
+anotacao_tabela = inspect.getsource(tabela)
+print(anotacao_tabela)
