@@ -1,0 +1,15 @@
+def tabela(tab1):
+    def decorator(funcao):
+        def wrapper(*args, **kwargs):
+            print("Acessando tabela:", tab1)
+            return funcao(*args, **kwargs)
+        return wrapper
+    return decorator
+
+# Exemplo de uso:
+
+@tabela("usuarios")
+def buscar_usuarios():
+    print("Buscando usuários...")
+
+buscar_usuarios()
